@@ -1,11 +1,14 @@
 const Url_API = 'http://localhost:3000';
 
+
+// EXERCICIO03
 export async function getAll (){
     const response = await fetch (`${Url_API}/noticias`);
     const formatado = await response.json();
     return formatado;
 }
 
+// EXERCICIO04
 export async function getOne (id) {
     const response = await fetch (`${Url_API}/noticias`);
     const noticias = await response.json();

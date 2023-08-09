@@ -18,9 +18,9 @@ function Header() {
         <li className="menu-item">
           <NavLink to={"login"}>Login</NavLink>
         </li>
-        <li className="menu-item">
+        {/* <li className="menu-item">
           <NavLink to={"noticias"}>Noticias</NavLink>
-        </li>
+        </li> */}
         <li onClick={ToggleTheme} className="menu-item">
           Alterar Tema (Atual : {theme})
         </li>

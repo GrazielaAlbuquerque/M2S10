@@ -13,29 +13,22 @@ function Login() {
   const [errorForm, setErrorForm] = useState(false);
   const navigate = useNavigate();
 
-
-  //Seta o error forma para false à cada alteração no input de password ou de email.
+//EXERCICIO07
   useEffect(() => {
     setErrorForm(false);
     inputRefs.current.email.style.borderColor = "blue";
     inputRefs.current.password.style.borderColor = "blue";
   }, [password, email]);
 
-
-  //Atualiza a variável de email à cada alteração no input
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
 
-
-  ////Atualiza a variável de password à cada alteração no input
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
 
-  //Impede que a página seja recarregada ao clicar no submit, faz uma chamada á API para ver se encontra os dados recebidos nos inputs de 
-  // e de password, se retornar nulo seta o error como true, caso contrario chama a função de contexto "login" e passa o response como 
-  //parâmetro, também direciona o usuário para a página inicial (home).
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await loginAPI(email, password);

@@ -6,7 +6,6 @@ import { AuthContext } from "../../context/AuthContext/AUthContext";
 import './styles.css';
 
 export default function Home() {
-  // getAll();
   const [noticias, setNoticias] = useState([]);
   const {user} = useContext(AuthContext);
   const [nomeUsuario, setNomeUsuario] = useState("");
@@ -16,6 +15,7 @@ export default function Home() {
     setNomeUsuario(prefixo);
   }
 
+  // EXERCICIO03
   useEffect(() => {
     async function fetchAll() {
       const data = await getAll();
@@ -25,20 +25,13 @@ export default function Home() {
     getPrefixo();
   }, []);
 
-  const verUmaNoticia = () =>{
-    async function umaNoticia (id){
-      const noticia = await getOne(id);
-      return noticia;
-    }
-    umaNoticia(1).then(e=>console.log(e));
-  }
-
   return (
     <>
+    {/* EXERCICIO08 */}
       <h1>Home</h1>
       <h2>Bem vindo(a) {nomeUsuario}</h2>
-      <button onClick={verUmaNoticia}>Ver uma noticia</button>
       <div className="cards">
+      {/* EXERCICIO05 */}
         {noticias.map((noticia) => {
           return (
             <CardNoticia
